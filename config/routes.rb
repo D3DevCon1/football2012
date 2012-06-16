@@ -13,7 +13,7 @@ Football::Application.routes.draw do
   match '/contact', to: 'static_pages#contact'
   
   match '/signup', :to => 'users#new'
-  match '/signin', :to => 'sessions#new'
+  match '/signin', :to => 'users#sign_in'
   match '/signout', :to => 'sessions#destroy'
   match '/contact', :to => 'pages#contact'
 
