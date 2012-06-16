@@ -1,0 +1,13 @@
+# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/Fixtures.html
+
+one:
+  match_date: 2012-06-16
+  match_time: 2012-06-16 14:41:04
+  home_team: MyString
+  away_team: MyString
+
+two:
+  match_date: 2012-06-16
+  match_time: 2012-06-16 14:41:04
+  home_team: MyString
+  away_team: MyString

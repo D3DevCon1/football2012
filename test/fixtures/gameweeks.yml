@@ -1,0 +1,13 @@
+# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/Fixtures.html
+
+one:
+  gameweek_no: 1
+  start_date: 2012-06-16
+  start_time: 2012-06-16 14:38:24
+  fixtures: 1
+
+two:
+  gameweek_no: 1
+  start_date: 2012-06-16
+  start_time: 2012-06-16 14:38:24
+  fixtures: 1
