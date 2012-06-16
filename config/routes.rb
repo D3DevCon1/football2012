@@ -3,13 +3,11 @@ Football::Application.routes.draw do
 
   devise_for :users
 
-  resources :scores
-
-  resources :teams
-
-  resources :fixtures
-
   resources :gameweeks
+  resources :fixtures
+  resources :teams
+  resources :scores 
+  
 
   # The priority is based upon order of creation:
   # first created -> highest priority.
