@@ -3,6 +3,7 @@ Football::Application.routes.draw do
 
   devise_for :users
 
+  resources :users
   resources :gameweeks
   resources :fixtures
   resources :teams
