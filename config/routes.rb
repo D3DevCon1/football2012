@@ -1,22 +1,34 @@
 Football::Application.routes.draw do
+  root :to => 'pages#home'
+  
   mount RailsAdmin::Engine => '/admin', :as => 'rails_admin'
 
-  devise_for :users
+  #devise_for :users
+  devise_for :users, :skip => [:sessions]
+  as :user do
+    get 'signin' => 'devise/sessions#new', :as => :new_user_session
+	post 'signin' => 'devise/sessions#create', :as => :user_session
+	get 'signup' => 'devise/registrations#new', :as => :new_user_registration
+	post 'signup' => 'devise/registrations#create', :as => :user_registration
+    delete 'signout' => 'devise/sessions#destroy', :as => :destroy_user_session
+  end
+
 
   resources :users
-  resources :gameweeks
-  resources :fixtures
-  resources :teams
-  resources :scores 
+  resources :gameweeks, :only => [:index, :show]
+  resources :fixtures, :only => [:index, :show]
+  resources :teams, :only => [:index, :show]
+  resources :scores , :only => [:index, :show]
   
   match '/help',    to: 'static_pages#help'
   match '/about',   to: 'static_pages#about'
   match '/contact', to: 'static_pages#contact'
   
-  match '/signup', :to => 'users#new'
-  match '/signin', :to => 'users#sign_in'
-  match '/signout', :to => 'sessions#destroy'
-  match '/contact', :to => 'pages#contact'
+  # match '/signup', :to => 'users#new'
+  # devise
+  # match '/signin', :to => 'devise/sessions#create'
+  # match '/signout', :to => 'sessions#destroy'
+  # match '/contact', :to => 'pages#contact'
 
   # The priority is based upon order of creation:
   # first created -> highest priority.

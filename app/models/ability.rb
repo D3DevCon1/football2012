@@ -17,9 +17,9 @@ class Ability
 	else
 	  can :access, :rails_admin 
 	  can :dashboard
-	  can :read, Fixture
+	  #can :read, Fixture
 	  
-	  can :index, Fixture
+	  #can :index, Fixture
     end
 	
 	
