@@ -2,24 +2,20 @@
 
 <table>
   <tr>
-    <th>Gameweek no</th>
-    <th>Start date</th>
-    <th>Start time</th>
+    <th>Gameweek</th>
+    <th>Date</th>
+    <th>Deadline</th>
     <th>Fixtures</th>
-    <th></th>
-    <th></th>
     <th></th>
   </tr>
 
 <% @gameweeks.each do |gameweek| %>
   <tr>
     <td><%= gameweek.gameweek_no %></td>
-    <td><%= gameweek.start_date %></td>
-    <td><%= gameweek.start_time %></td>
+    <td><%= gameweek.start_date.strftime("%d/%m/%Y") %></td>
+	<td><%= gameweek.start_time.strftime("%H:%M") %></td>
     <td><%= gameweek.fixtures %></td>
-    <td><%= link_to 'Show', gameweek %></td>
-    <td><%= link_to 'Edit', edit_gameweek_path(gameweek) %></td>
-    <td><%= link_to 'Destroy', gameweek, confirm: 'Are you sure?', method: :delete %></td>
+	<td><%= link_to 'Show', gameweek %></td>
   </tr>
 <% end %>
 </table>

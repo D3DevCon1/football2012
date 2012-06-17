@@ -1,0 +1,29 @@
+<h1>Listing gameweeks</h1>
+
+<table>
+  <tr>
+    <th>Gameweek no</th>
+    <th>Start date</th>
+    <th>Start time</th>
+    <th>Fixtures</th>
+    <th></th>
+    <th></th>
+    <th></th>
+  </tr>
+
+<% @gameweeks.each do |gameweek| %>
+  <tr>
+    <td><%= gameweek.gameweek_no %></td>
+    <td><%= gameweek.start_date %></td>
+    <td><%= gameweek.start_time %></td>
+    <td><%= gameweek.fixtures %></td>
+    <td><%= link_to 'Show', gameweek %></td>
+    <td><%= link_to 'Edit', edit_gameweek_path(gameweek) %></td>
+    <td><%= link_to 'Destroy', gameweek, confirm: 'Are you sure?', method: :delete %></td>
+  </tr>
+<% end %>
+</table>
+
+<br />
+
+<%= link_to 'New Gameweek', new_gameweek_path %>

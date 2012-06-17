@@ -1,25 +1,36 @@
 <p id="notice"><%= notice %></p>
 
-<p>
-  <b>Gameweek no:</b>
-  <%= @gameweek.gameweek_no %>
-</p>
+<h1>Gameweek <%= @gameweek.gameweek_no %></h1>
 
 <p>
-  <b>Start date:</b>
-  <%= @gameweek.start_date %>
-</p>
-
-<p>
-  <b>Start time:</b>
-  <%= @gameweek.start_time %>
-</p>
-
-<p>
-  <b>Fixtures:</b>
+  <b>Number of matches:</b> 
   <%= @gameweek.fixtures %>
+  <b>Deadline Date:</b>
+  <%= @gameweek.start_date.strftime("%d/%m/%Y") %>
+  <b>Deadline Time:</b>
+  <%= @gameweek.start_time.strftime("%H:%M") %>
 </p>
 
+<table width="100%">
+  <tr>
+    <th>Date</th>
+	<th>Kick Off</th>
+	<th>Home</th>
+	<th></th>
+    <th>Away</th>
+  </tr>
 
-<%= link_to 'Edit', edit_gameweek_path(@gameweek) %> |
+<% Fixture.where(:gameweek_no => @gameweek.gameweek_no).each do |fixture| %> 
+  <tr>
+    <td width="10"><%= fixture.match_date.strftime("%d/%m/%Y")%></td>
+	<td width="10"><%= fixture.match_time.strftime("%H:%M") %></td>
+	<td width="80"><%= fixture.home_team %></td> 
+	<td width="10">Vs.</td>
+    <td width="80"><%= fixture.away_team %></td>
+  </tr>
+<% end %>
+</table>
+
+
+<br>
 <%= link_to 'Back', gameweeks_path %>
