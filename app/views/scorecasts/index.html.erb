@@ -1,0 +1,31 @@
+<h1>Listing scorecasts</h1>
+
+<table>
+  <tr>
+    <th>User</th>
+    <th>Gameweek no</th>
+    <th>Home score</th>
+    <th>Away score</th>
+    <th>Points</th>
+    <th></th>
+    <th></th>
+    <th></th>
+  </tr>
+
+<% @scorecasts.each do |scorecast| %>
+  <tr>
+    <td><%= scorecast.user_id %></td>
+    <td><%= scorecast.gameweek_no %></td>
+    <td><%= scorecast.home_score %></td>
+    <td><%= scorecast.away_score %></td>
+    <td><%= scorecast.points %></td>
+    <td><%= link_to 'Show', scorecast %></td>
+    <td><%= link_to 'Edit', edit_scorecast_path(scorecast) %></td>
+    <td><%= link_to 'Destroy', scorecast, confirm: 'Are you sure?', method: :delete %></td>
+  </tr>
+<% end %>
+</table>
+
+<br />
+
+<%= link_to 'New Scorecast', new_scorecast_path %>
