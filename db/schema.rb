@@ -11,7 +11,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20120617160259) do
+ActiveRecord::Schema.define(:version => 20120619204414) do
 
   create_table "fixtures", :force => true do |t|
     t.date     "match_date"
@@ -32,6 +32,15 @@ ActiveRecord::Schema.define(:version => 20120617160259) do
     t.datetime "updated_at",  :null => false
   end
 
+  create_table "predictions", :force => true do |t|
+    t.integer  "user_id"
+    t.integer  "gameweek_no"
+    t.integer  "fixtures"
+    t.integer  "points"
+    t.datetime "created_at",  :null => false
+    t.datetime "updated_at",  :null => false
+  end
+
   create_table "rails_admin_histories", :force => true do |t|
     t.text     "message"
     t.string   "username"
@@ -44,6 +53,16 @@ ActiveRecord::Schema.define(:version => 20120617160259) do
   end
 
   add_index "rails_admin_histories", ["item", "table", "month", "year"], :name => "index_rails_admin_histories"
+
+  create_table "scorecasts", :force => true do |t|
+    t.integer  "user_id"
+    t.integer  "gameweek_no"
+    t.integer  "home_score"
+    t.integer  "away_score"
+    t.integer  "points"
+    t.datetime "created_at",  :null => false
+    t.datetime "updated_at",  :null => false
+  end
 
   create_table "scores", :force => true do |t|
     t.integer  "home_score"

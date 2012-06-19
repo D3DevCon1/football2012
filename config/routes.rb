@@ -1,8 +1,4 @@
 Football::Application.routes.draw do
-  resources :scorecasts
-
-  resources :predictions
-
   root :to => 'pages#home'
   
   mount RailsAdmin::Engine => '/admin', :as => 'rails_admin'
@@ -10,30 +6,28 @@ Football::Application.routes.draw do
   #devise_for :users
   devise_for :users, :skip => [:sessions]
   as :user do
-    get 'signin' => 'devise/sessions#new', :as => :new_user_session
-	post 'signin' => 'devise/sessions#create', :as => :user_session
-	get 'signup' => 'devise/registrations#new', :as => :new_user_registration
-	post 'signup' => 'devise/registrations#create', :as => :user_registration
-    delete 'signout' => 'devise/sessions#destroy', :as => :destroy_user_session
+    get    'signin'  => 'devise/sessions#new',         :as => :new_user_session
+	post   'signin'  => 'devise/sessions#create',      :as => :user_session
+	get    'signup'  => 'devise/registrations#new',    :as => :new_user_registration
+	post   'signup'  => 'devise/registrations#create', :as => :user_registration
+    delete 'signout' => 'devise/sessions#destroy',     :as => :destroy_user_session
   end
 
 
   resources :users
-  resources :gameweeks, :only => [:index, :show]
-  resources :fixtures, :only => [:index, :show]
-  resources :teams, :only => [:index, :show]
-  resources :scores , :only => [:index, :show]
+  resources :gameweeks,   :only => [:index, :show]
+  resources :fixtures,    :only => [:index, :show]
+  resources :teams,       :only => [:index, :show]
+  resources :scores ,     :only => [:index, :show]
+  resources :predictions, :only => [:index, :show]
+  resources :scorecasts,  :only => [:index, :show]
   
   match '/help',    to: 'static_pages#help'
   match '/about',   to: 'static_pages#about'
   match '/contact', to: 'static_pages#contact'
   
-  # match '/signup', :to => 'users#new'
-  # devise
-  # match '/signin', :to => 'devise/sessions#create'
-  # match '/signout', :to => 'sessions#destroy'
-  # match '/contact', :to => 'pages#contact'
-
+  root :to => 'pages#home'
+  
   # The priority is based upon order of creation:
   # first created -> highest priority.
 
@@ -83,7 +77,7 @@ Football::Application.routes.draw do
 
   # You can have the root of your site routed with "root"
   # just remember to delete public/index.html.
-  root :to => 'pages#home'
+  # root :to => 'pages#home'
 
   # See how all your routes lay out with "rake routes"
 
