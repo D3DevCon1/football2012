@@ -16,7 +16,8 @@ class Ability
       # end
 	else
 	  can :access, :rails_admin 
-	  can :dashboard
+	  #can :manage, Profile, :user_id => user.id
+	  cannot :dashboard
 	  #can :read, Fixture
 	  
 	  #can :index, Fixture
