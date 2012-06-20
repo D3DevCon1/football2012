@@ -3,6 +3,7 @@
 one:
   user_id: 1
   gameweek_no: 1
+  fixture_no: 1
   home_score: 1
   away_score: 1
   points: 1
@@ -10,6 +11,7 @@ one:
 two:
   user_id: 1
   gameweek_no: 1
+  fixture_no: 1
   home_score: 1
   away_score: 1
   points: 1

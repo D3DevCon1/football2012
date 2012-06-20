@@ -1,4 +1,6 @@
 Football::Application.routes.draw do
+  resources :scorecasts
+
   root :to => 'pages#home'
   
   mount RailsAdmin::Engine => '/admin', :as => 'rails_admin'

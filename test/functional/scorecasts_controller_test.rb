@@ -18,7 +18,7 @@ class ScorecastsControllerTest < ActionController::TestCase
 
   test "should create scorecast" do
     assert_difference('Scorecast.count') do
-      post :create, scorecast: { away_score: @scorecast.away_score, gameweek_no: @scorecast.gameweek_no, home_score: @scorecast.home_score, points: @scorecast.points, user_id: @scorecast.user_id }
+      post :create, scorecast: { away_score: @scorecast.away_score, fixture_no: @scorecast.fixture_no, gameweek_no: @scorecast.gameweek_no, home_score: @scorecast.home_score, points: @scorecast.points, user_id: @scorecast.user_id }
     end
 
     assert_redirected_to scorecast_path(assigns(:scorecast))
@@ -35,7 +35,7 @@ class ScorecastsControllerTest < ActionController::TestCase
   end
 
   test "should update scorecast" do
-    put :update, id: @scorecast, scorecast: { away_score: @scorecast.away_score, gameweek_no: @scorecast.gameweek_no, home_score: @scorecast.home_score, points: @scorecast.points, user_id: @scorecast.user_id }
+    put :update, id: @scorecast, scorecast: { away_score: @scorecast.away_score, fixture_no: @scorecast.fixture_no, gameweek_no: @scorecast.gameweek_no, home_score: @scorecast.home_score, points: @scorecast.points, user_id: @scorecast.user_id }
     assert_redirected_to scorecast_path(assigns(:scorecast))
   end
 
