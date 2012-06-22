@@ -1,40 +1,38 @@
 <p id="notice"><%= notice %></p>
 
+<h1>Predictions for Week <%= @prediction.gameweek_no %></h1>
+
+<table>
+  <tr>
+    <th>Date</th>
+	<th>Home</th>
+    <th>Away</th>
+	<th>Prediction</th>
+	<th>Result</th>
+  </tr>
+
+<% Fixture.where(:gameweek_no => 1).each do |fixture| %> 
+  <tr>
+    <td><%= fixture.match_date.strftime("%d/%m")%></td>
+	<td><%= fixture.home_team %></td> 
+    <td><%= fixture.away_team %></td>
+	<% Scorecast.where(:fixture_no => fixture.id).each do |scorecast| %> 
+		<td><%= scorecast.home_score %> - <%= scorecast.away_score %></td>
+		<td>Pending</td>
+	<% end %>
+  </tr>
+<% end %>
+</table>
+
 <p>
   <b>User:</b>
   <%= @prediction.user_id %>
 </p>
 
 <p>
-  <b>Gameweek no:</b>
-  <%= @prediction.gameweek_no %>
-</p>
-
-<p>
-  <b>Fixtures:</b>
-  <%= @prediction.fixtures %>
-</p>
-
-<p>
   <b>Points:</b>
   <%= @prediction.points %>
 </p>
-
-<% @scorecasts.each do |scorecast| %>
-  <tr>
-    <td><%= scorecast.user_id %></td>
-	<td><%= scorecast.gameweek_no %></td>
-    <td><%= scorecast.fixture_no %></td>
-    <td><%= scorecast.home_score %></td>
-    <td><%= scorecast.away_score %></td>
-	<td><%= scorecast.points %></td>
-    <td><%= link_to 'Show', scorecast %></td>
-    <!--td--><!--%= link_to 'Edit', edit_prediction_path(prediction) %--><!--/td-->
-    <!--td--><!--%= link_to 'Destroy', prediction, confirm: 'Are you sure?', method: :delete %--><!--/td-->
-  </tr>
-<% end %>
-</table>
-
 
 <!--%= link_to 'Edit', edit_prediction_path(@prediction) %--> |
 <%= link_to 'Back', predictions_path %>

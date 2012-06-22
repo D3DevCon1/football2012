@@ -11,7 +11,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20120620000159) do
+ActiveRecord::Schema.define(:version => 20120622230658) do
 
   create_table "fixtures", :force => true do |t|
     t.date     "match_date"
@@ -21,6 +21,8 @@ ActiveRecord::Schema.define(:version => 20120620000159) do
     t.datetime "created_at",  :null => false
     t.datetime "updated_at",  :null => false
     t.integer  "gameweek_no"
+    t.integer  "home_score"
+    t.integer  "away_score"
   end
 
   create_table "gameweeks", :force => true do |t|

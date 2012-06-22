@@ -3,12 +3,10 @@
 <h1>Gameweek <%= @gameweek.gameweek_no %></h1>
 
 <p>
-  <b>Number of matches:</b> 
-  <%= @gameweek.fixtures %>
-  <b>Deadline Date:</b>
-  <%= @gameweek.start_date.strftime("%d/%m/%Y") %>
-  <b>Deadline Time:</b>
-  <%= @gameweek.start_time.strftime("%H:%M") %>
+  &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+  <b>Number of matches:</b><%= @gameweek.fixtures %>
+  &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+  <b>Deadline:</b><%= @gameweek.start_date.strftime("%d/%m/%Y") %> @ <%= @gameweek.start_time.strftime("%H:%M") %>
 </p>
 
 <table>
