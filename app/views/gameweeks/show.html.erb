@@ -11,22 +11,20 @@
   <%= @gameweek.start_time.strftime("%H:%M") %>
 </p>
 
-<table width="100%">
+<table>
   <tr>
     <th>Date</th>
 	<th>Kick Off</th>
 	<th>Home</th>
-	<th></th>
     <th>Away</th>
   </tr>
 
 <% Fixture.where(:gameweek_no => @gameweek.gameweek_no).each do |fixture| %> 
   <tr>
-    <td width="10"><%= fixture.match_date.strftime("%d/%m/%Y")%></td>
-	<td width="10"><%= fixture.match_time.strftime("%H:%M") %></td>
-	<td width="80"><%= fixture.home_team %></td> 
-	<td width="10">Vs.</td>
-    <td width="80"><%= fixture.away_team %></td>
+    <td><%= fixture.match_date.strftime("%d/%m/%Y")%></td>
+	<td><%= fixture.match_time.strftime("%H:%M") %></td>
+	<td><%= fixture.home_team %></td> 
+    <td><%= fixture.away_team %></td>
   </tr>
 <% end %>
 </table>
