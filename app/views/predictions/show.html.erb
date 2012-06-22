@@ -20,6 +20,21 @@
   <%= @prediction.points %>
 </p>
 
+<% @scorecasts.each do |scorecast| %>
+  <tr>
+    <td><%= scorecast.user_id %></td>
+	<td><%= scorecast.gameweek_no %></td>
+    <td><%= scorecast.fixture_no %></td>
+    <td><%= scorecast.home_score %></td>
+    <td><%= scorecast.away_score %></td>
+	<td><%= scorecast.points %></td>
+    <td><%= link_to 'Show', scorecast %></td>
+    <!--td--><!--%= link_to 'Edit', edit_prediction_path(prediction) %--><!--/td-->
+    <!--td--><!--%= link_to 'Destroy', prediction, confirm: 'Are you sure?', method: :delete %--><!--/td-->
+  </tr>
+<% end %>
+</table>
 
-<%= link_to 'Edit', edit_prediction_path(@prediction) %> |
+
+<!--%= link_to 'Edit', edit_prediction_path(@prediction) %--> |
 <%= link_to 'Back', predictions_path %>
