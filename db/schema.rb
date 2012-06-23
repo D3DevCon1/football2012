@@ -11,7 +11,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20120622230658) do
+ActiveRecord::Schema.define(:version => 20120623011631) do
 
   create_table "fixtures", :force => true do |t|
     t.date     "match_date"
@@ -21,8 +21,6 @@ ActiveRecord::Schema.define(:version => 20120622230658) do
     t.datetime "created_at",  :null => false
     t.datetime "updated_at",  :null => false
     t.integer  "gameweek_no"
-    t.integer  "home_score"
-    t.integer  "away_score"
   end
 
   create_table "gameweeks", :force => true do |t|
@@ -35,10 +33,18 @@ ActiveRecord::Schema.define(:version => 20120622230658) do
   end
 
   create_table "predictions", :force => true do |t|
-    t.integer  "user_id"
     t.integer  "gameweek_no"
-    t.integer  "fixtures"
-    t.integer  "points"
+    t.integer  "user_id"
+    t.integer  "match1"
+    t.integer  "match2"
+    t.integer  "match3"
+    t.integer  "match4"
+    t.integer  "match5"
+    t.integer  "match6"
+    t.integer  "match7"
+    t.integer  "match8"
+    t.integer  "match9"
+    t.integer  "match10"
     t.datetime "created_at",  :null => false
     t.datetime "updated_at",  :null => false
   end
@@ -55,17 +61,6 @@ ActiveRecord::Schema.define(:version => 20120622230658) do
   end
 
   add_index "rails_admin_histories", ["item", "table", "month", "year"], :name => "index_rails_admin_histories"
-
-  create_table "scorecasts", :force => true do |t|
-    t.integer  "user_id"
-    t.integer  "gameweek_no"
-    t.integer  "fixture_no"
-    t.integer  "home_score"
-    t.integer  "away_score"
-    t.integer  "points"
-    t.datetime "created_at",  :null => false
-    t.datetime "updated_at",  :null => false
-  end
 
   create_table "scores", :force => true do |t|
     t.integer  "home_score"

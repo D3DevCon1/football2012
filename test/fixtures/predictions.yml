@@ -1,13 +1,29 @@
 # Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/Fixtures.html
 
 one:
-  user_id: 1
   gameweek_no: 1
-  fixtures: 1
-  points: 1
+  user_id: 1
+  match1: 1
+  match2: 1
+  match3: 1
+  match4: 1
+  match5: 1
+  match6: 1
+  match7: 1
+  match8: 1
+  match9: 1
+  match10: 1
 
 two:
-  user_id: 1
   gameweek_no: 1
-  fixtures: 1
-  points: 1
+  user_id: 1
+  match1: 1
+  match2: 1
+  match3: 1
+  match4: 1
+  match5: 1
+  match6: 1
+  match7: 1
+  match8: 1
+  match9: 1
+  match10: 1

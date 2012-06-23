@@ -1,29 +1,3 @@
-<p id="notice"><%= notice %></p>
-
-<h1>Gameweek <%= @prediction.gameweek_no %> Predictions</h1>
-
-<table>
-  <tr>
-    <th>Date</th>
-	<th>Home</th>
-    <th>Away</th>
-	<th>Prediction</th>
-	<th>Result</th>
-  </tr>
-
-<% Fixture.where(:gameweek_no => 1).each do |fixture| %> 
-  <tr>
-    <td><%= fixture.match_date.strftime("%d/%m/%Y")%></td>
-	<td><%= fixture.home_team %></td> 
-    <td><%= fixture.away_team %></td>
-	<% Scorecast.where(:fixture_no => fixture.id).each do |scorecast| %> 
-		<td><%= scorecast.home_score %> - <%= scorecast.away_score %></td>
-		<td>Pending</td>
-	<% end %>
-  </tr>
-<% end %>
-</table>
-
 <%= form_for(@prediction) do |f| %>
   <% if @prediction.errors.any? %>
     <div id="error_explanation">
@@ -38,20 +12,52 @@
   <% end %>
 
   <div class="field">
-    <%= f.label :user_id %><br />
-    <%= f.number_field :user_id %>
-  </div>
-  <div class="field">
     <%= f.label :gameweek_no %><br />
     <%= f.number_field :gameweek_no %>
   </div>
   <div class="field">
-    <%= f.label :fixtures %><br />
-    <%= f.number_field :fixtures %>
+    <%= f.label :user_id %><br />
+    <%= f.number_field :user_id %>
   </div>
   <div class="field">
-    <%= f.label :points %><br />
-    <%= f.number_field :points %>
+    <%= f.label :match1 %><br />
+    <%= f.number_field :match1 %>
+  </div>
+  <div class="field">
+    <%= f.label :match2 %><br />
+    <%= f.number_field :match2 %>
+  </div>
+  <div class="field">
+    <%= f.label :match3 %><br />
+    <%= f.number_field :match3 %>
+  </div>
+  <div class="field">
+    <%= f.label :match4 %><br />
+    <%= f.number_field :match4 %>
+  </div>
+  <div class="field">
+    <%= f.label :match5 %><br />
+    <%= f.number_field :match5 %>
+  </div>
+  <div class="field">
+    <%= f.label :match6 %><br />
+    <%= f.number_field :match6 %>
+  </div>
+  <div class="field">
+    <%= f.label :match7 %><br />
+    <%= f.number_field :match7 %>
+  </div>
+  <div class="field">
+    <%= f.label :match8 %><br />
+    <%= f.number_field :match8 %>
+  </div>
+  <div class="field">
+    <%= f.label :match9 %><br />
+    <%= f.number_field :match9 %>
+  </div>
+  <div class="field">
+    <%= f.label :match10 %><br />
+    <%= f.number_field :match10 %>
   </div>
   <div class="actions">
     <%= f.submit %>

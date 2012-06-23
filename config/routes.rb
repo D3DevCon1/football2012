@@ -1,5 +1,5 @@
 Football::Application.routes.draw do
-  resources :scorecasts
+  resources :predictions
 
   root :to => 'pages#home'
   
