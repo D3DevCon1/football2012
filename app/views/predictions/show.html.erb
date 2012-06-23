@@ -1,6 +1,6 @@
 <p id="notice"><%= notice %></p>
 
-<h1>Predictions for Week <%= @prediction.gameweek_no %></h1>
+<h1>Gameweek <%= @prediction.gameweek_no %> Predictions</h1>
 
 <table>
   <tr>
@@ -13,7 +13,7 @@
 
 <% Fixture.where(:gameweek_no => 1).each do |fixture| %> 
   <tr>
-    <td><%= fixture.match_date.strftime("%d/%m")%></td>
+    <td><%= fixture.match_date.strftime("%d/%m/%Y")%></td>
 	<td><%= fixture.home_team %></td> 
     <td><%= fixture.away_team %></td>
 	<% Scorecast.where(:fixture_no => fixture.id).each do |scorecast| %> 

@@ -1,3 +1,29 @@
+<p id="notice"><%= notice %></p>
+
+<h1>Gameweek <%= @prediction.gameweek_no %> Predictions</h1>
+
+<table>
+  <tr>
+    <th>Date</th>
+	<th>Home</th>
+    <th>Away</th>
+	<th>Prediction</th>
+	<th>Result</th>
+  </tr>
+
+<% Fixture.where(:gameweek_no => 1).each do |fixture| %> 
+  <tr>
+    <td><%= fixture.match_date.strftime("%d/%m/%Y")%></td>
+	<td><%= fixture.home_team %></td> 
+    <td><%= fixture.away_team %></td>
+	<% Scorecast.where(:fixture_no => fixture.id).each do |scorecast| %> 
+		<td><%= scorecast.home_score %> - <%= scorecast.away_score %></td>
+		<td>Pending</td>
+	<% end %>
+  </tr>
+<% end %>
+</table>
+
 <%= form_for(@prediction) do |f| %>
   <% if @prediction.errors.any? %>
     <div id="error_explanation">

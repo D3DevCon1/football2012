@@ -21,8 +21,8 @@ Football::Application.routes.draw do
   resources :fixtures,    :only => [:index, :show]
   resources :teams,       :only => [:index, :show]
   resources :scores ,     :only => [:index, :show]
-  resources :predictions, :only => [:index, :show]
-  resources :scorecasts,  :only => [:index, :show]
+  resources :predictions, :only => [:index, :show, :new]
+  resources :scorecasts,  :only => [:index, :show, :new]
   
   match '/help',    to: 'static_pages#help'
   match '/about',   to: 'static_pages#about'

@@ -1,13 +1,6 @@
-<h1>Listing teams</h1>
+<h1>Premier League Teams</h1>
 
 <table>
-  <tr>
-    <th>Name</th>
-    <th></th>
-    <th></th>
-    <th></th>
-  </tr>
-
 <% @teams.each do |team| %>
   <tr>
     <td><%= link_to team.name, team %></td>
