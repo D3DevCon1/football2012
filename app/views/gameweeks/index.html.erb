@@ -1,20 +1,20 @@
 <h1>Listing gameweeks</h1>
 
 <table>
-  <tr>
+  <thead>
     <th>Gameweek</th>
     <th>Date</th>
     <th>Deadline</th>
     <th>Fixtures</th>
     <th></th>
-  </tr>
+  </thead>
 
 <% @gameweeks.each do |gameweek| %>
   <tr>
     <td><%= gameweek.gameweek_no %></td>
     <td><%= gameweek.start_date.strftime("%d/%m/%Y") %></td>
 	<td><%= gameweek.start_time.strftime("%H:%M") %></td>
-    <td><%= gameweek.fixtures %></td>
+    <td><%= gameweek.num_fixtures %></td>
 	<td><%= link_to 'Show', gameweek %></td>
   </tr>
 <% end %>

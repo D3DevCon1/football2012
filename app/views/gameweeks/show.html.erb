@@ -4,18 +4,18 @@
 
 <p>
   &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
-  <b>Number of matches:</b><%= @gameweek.fixtures %>
+  <b>Number of matches:</b><%= @gameweek.num_fixtures %>
   &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
   <b>Deadline:</b><%= @gameweek.start_date.strftime("%d/%m/%Y") %> @ <%= @gameweek.start_time.strftime("%H:%M") %>
 </p>
 
 <table>
-  <tr>
+  <thead>
     <th>Date</th>
 	<th>Kick Off</th>
 	<th>Home</th>
     <th>Away</th>
-  </tr>
+  </thead>
 
 <% Fixture.where(:gameweek_no => @gameweek.gameweek_no).each do |fixture| %> 
   <tr>

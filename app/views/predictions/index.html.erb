@@ -1,41 +1,21 @@
 <h1>Listing predictions</h1>
 
 <table>
-  <tr>
-    <th>Gameweek no</th>
-    <th>User</th>
-    <th>Match1</th>
-    <th>Match2</th>
-    <th>Match3</th>
-    <th>Match4</th>
-    <th>Match5</th>
-    <th>Match6</th>
-    <th>Match7</th>
-    <th>Match8</th>
-    <th>Match9</th>
-    <th>Match10</th>
-    <th></th>
-    <th></th>
-    <th></th>
-  </tr>
+  <thead>
+    <th>User ID</th>
+    <th>Fixture No</th>
+    <th>Home Score</th>
+    <th>Away Score</th>
+	<th></th>
+  </thead>
 
 <% @predictions.each do |prediction| %>
   <tr>
-    <td><%= prediction.gameweek_no %></td>
     <td><%= prediction.user_id %></td>
-    <td><%= prediction.match1 %></td>
-    <td><%= prediction.match2 %></td>
-    <td><%= prediction.match3 %></td>
-    <td><%= prediction.match4 %></td>
-    <td><%= prediction.match5 %></td>
-    <td><%= prediction.match6 %></td>
-    <td><%= prediction.match7 %></td>
-    <td><%= prediction.match8 %></td>
-    <td><%= prediction.match9 %></td>
-    <td><%= prediction.match10 %></td>
+    <td><%= prediction.fixture_no %></td>
+    <td><%= prediction.home_score %></td>
+    <td><%= prediction.away_score %></td>
     <td><%= link_to 'Show', prediction %></td>
-    <td><%= link_to 'Edit', edit_prediction_path(prediction) %></td>
-    <td><%= link_to 'Destroy', prediction, confirm: 'Are you sure?', method: :delete %></td>
   </tr>
 <% end %>
 </table>

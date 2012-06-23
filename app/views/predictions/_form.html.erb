@@ -10,55 +10,37 @@
       </ul>
     </div>
   <% end %>
+  
+  <table>
+  <tr>
+    <th>Date</th>
+	<th>Kick Off</th>
+	<th>Home</th>
+    <th>Away</th>
+	<th>Home</th>
+	<th>Away</th>
+  </tr>
+
+	<% Fixture.where(:gameweek_no => 1).each do |fixture| %> 
+		<tr>
+			<td><%= fixture.match_date.strftime("%d/%m/%Y")%></td>
+			<td><%= fixture.match_time.strftime("%H:%M") %></td>
+			<td><%= fixture.home_team %></td> 
+			<td><%= fixture.away_team %></td>
+			<f.fields_for :predictions do |builder| %>
+				<td><%= f.number_field :home_score %></td>
+				<td><%= f.number_field :away_score %></td>
+		</tr>
+	<% end %>
+  </table>
 
   <div class="field">
-    <%= f.label :gameweek_no %><br />
-    <%= f.number_field :gameweek_no %>
+	<!-- THIS NEEDS TO BE SORTED FOR CURRENT GAMEWEEK CURRENTLY SET TO CURRENT USER -->
+    <%= f.hidden_field :gameweek_no, :value => current_user.id %><br />
   </div>
   <div class="field">
-    <%= f.label :user_id %><br />
-    <%= f.number_field :user_id %>
-  </div>
-  <div class="field">
-    <%= f.label :match1 %><br />
-    <%= f.number_field :match1 %>
-  </div>
-  <div class="field">
-    <%= f.label :match2 %><br />
-    <%= f.number_field :match2 %>
-  </div>
-  <div class="field">
-    <%= f.label :match3 %><br />
-    <%= f.number_field :match3 %>
-  </div>
-  <div class="field">
-    <%= f.label :match4 %><br />
-    <%= f.number_field :match4 %>
-  </div>
-  <div class="field">
-    <%= f.label :match5 %><br />
-    <%= f.number_field :match5 %>
-  </div>
-  <div class="field">
-    <%= f.label :match6 %><br />
-    <%= f.number_field :match6 %>
-  </div>
-  <div class="field">
-    <%= f.label :match7 %><br />
-    <%= f.number_field :match7 %>
-  </div>
-  <div class="field">
-    <%= f.label :match8 %><br />
-    <%= f.number_field :match8 %>
-  </div>
-  <div class="field">
-    <%= f.label :match9 %><br />
-    <%= f.number_field :match9 %>
-  </div>
-  <div class="field">
-    <%= f.label :match10 %><br />
-    <%= f.number_field :match10 %>
-  </div>
+    <%= f.hidden_field :user_id, :value => current_user.id %><br 
+  </div>  
   <div class="actions">
     <%= f.submit %>
   </div>

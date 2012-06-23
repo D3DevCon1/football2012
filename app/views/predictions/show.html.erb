@@ -1,65 +1,24 @@
 <p id="notice"><%= notice %></p>
 
 <p>
-  <b>Gameweek no:</b>
-  <%= @prediction.gameweek_no %>
-</p>
-
-<p>
   <b>User:</b>
   <%= @prediction.user_id %>
 </p>
 
 <p>
-  <b>Match1:</b>
-  <%= @prediction.match1 %>
+  <b>Fixture No:</b>
+  <%= @prediction.fixture_no %>
 </p>
 
 <p>
-  <b>Match2:</b>
-  <%= @prediction.match2 %>
+  <b>Home Score:</b>
+  <%= @prediction.home_score %>
 </p>
 
 <p>
-  <b>Match3:</b>
-  <%= @prediction.match3 %>
+  <b>Away Score:</b>
+  <%= @prediction.away_score %>
 </p>
-
-<p>
-  <b>Match4:</b>
-  <%= @prediction.match4 %>
-</p>
-
-<p>
-  <b>Match5:</b>
-  <%= @prediction.match5 %>
-</p>
-
-<p>
-  <b>Match6:</b>
-  <%= @prediction.match6 %>
-</p>
-
-<p>
-  <b>Match7:</b>
-  <%= @prediction.match7 %>
-</p>
-
-<p>
-  <b>Match8:</b>
-  <%= @prediction.match8 %>
-</p>
-
-<p>
-  <b>Match9:</b>
-  <%= @prediction.match9 %>
-</p>
-
-<p>
-  <b>Match10:</b>
-  <%= @prediction.match10 %>
-</p>
-
 
 <%= link_to 'Edit', edit_prediction_path(@prediction) %> |
 <%= link_to 'Back', predictions_path %>

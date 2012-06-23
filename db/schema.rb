@@ -11,7 +11,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20120623011631) do
+ActiveRecord::Schema.define(:version => 20120623110822) do
 
   create_table "fixtures", :force => true do |t|
     t.date     "match_date"
@@ -27,26 +27,18 @@ ActiveRecord::Schema.define(:version => 20120623011631) do
     t.integer  "gameweek_no"
     t.date     "start_date"
     t.time     "start_time"
-    t.integer  "fixtures"
-    t.datetime "created_at",  :null => false
-    t.datetime "updated_at",  :null => false
+    t.datetime "created_at",   :null => false
+    t.datetime "updated_at",   :null => false
+    t.integer  "num_fixtures"
   end
 
   create_table "predictions", :force => true do |t|
-    t.integer  "gameweek_no"
     t.integer  "user_id"
-    t.integer  "match1"
-    t.integer  "match2"
-    t.integer  "match3"
-    t.integer  "match4"
-    t.integer  "match5"
-    t.integer  "match6"
-    t.integer  "match7"
-    t.integer  "match8"
-    t.integer  "match9"
-    t.integer  "match10"
-    t.datetime "created_at",  :null => false
-    t.datetime "updated_at",  :null => false
+    t.integer  "fixture_no"
+    t.integer  "home_score"
+    t.integer  "away_score"
+    t.datetime "created_at", :null => false
+    t.datetime "updated_at", :null => false
   end
 
   create_table "rails_admin_histories", :force => true do |t|
